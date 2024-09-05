@@ -13,12 +13,12 @@ class FarmUnit{
         virtual int getCurrentStoredCrops() = 0 ;
         virtual void storeCrops(int amount) = 0 ;
         virtual void removeCrops(int amount) = 0 ;
-        virtual void harvest() ;
-        virtual void addObserver(Truck truck);
-        virtual void removeObserver(Truck truck);
-        virtual void notifyObservers();
-        virtual void buyTruck(Truck truck);
-        virtual void sellTruck(Truck truck);
+        virtual void harvest() = 0 ;
+        virtual void addObserver(Truck truck) = 0;
+        virtual void removeObserver(Truck truck) = 0;
+        virtual void notifyObservers() = 0;
+        virtual void buyTruck(Truck truck) = 0;
+        virtual void sellTruck(Truck truck)= 0;
 } ;
 
 #endif
