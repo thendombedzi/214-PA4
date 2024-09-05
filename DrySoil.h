@@ -5,9 +5,9 @@
 
 class DrySoil : public SoilState{
     public :
-        void rain() ;
-        string getName();
-        void harvestCrops();
+        void rain(CropField* cropfield) override ;
+        string getName()const override;
+        void harvestCrops(CropField* cropfield)override;
 };
 
 #endif

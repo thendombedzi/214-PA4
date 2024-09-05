@@ -5,8 +5,8 @@
 
 class FloodedSoil : public SoilState{
     public :
-        void rain() ;
-        string getName();
-        void harvestCrops();
+        void rain(CropField* cropfield) ;
+        string getName() const override;
+        void harvestCrops(CropField* cropfield);
 };
 #endif

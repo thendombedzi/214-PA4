@@ -8,9 +8,10 @@ using namespace std ;
 
 class SoilState{
     public :
-    virtual void rain() = 0 ;
-    virtual string getName() = 0 ;
-    virtual void harvestCrops() = 0 ;
+    virtual ~SoilState() = default;
+    virtual void rain(CropField* crop) = 0 ;
+    virtual string getName() const= 0 ;
+    virtual void harvestCrops(CropField* crop) = 0 ;
 };
 
 #endif
