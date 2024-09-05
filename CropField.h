@@ -24,7 +24,7 @@ class CropField : public FarmUnit {
         int getCurrentStoredCrops() override ;
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
-        void harvest() override ;
+        int harvest() override ;
         void rain();
         void setSoilState(SoilState* soilState);
 };
