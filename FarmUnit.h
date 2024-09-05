@@ -19,7 +19,11 @@ class FarmUnit{
         virtual void notifyObservers() = 0;
         virtual void buyTruck(Truck truck) = 0;
         virtual void sellTruck(Truck truck)= 0;
+        virtual string getSoilStateName() const = 0;
         virtual ~FarmUnit() = default ;
+
+         virtual void addUnit(FarmUnit* unit) {};
+    virtual void removeUnit(FarmUnit* unit) {};
 } ;
 
 #endif

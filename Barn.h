@@ -13,6 +13,7 @@ class Barn : public FarmUnit{
         int storedAmount ;
         string BarnCropType ;
     public :
+    Barn(int capacity);
         int getTotalCapacity() override ;
         int getCurrentStoredCrops() override ;
         void storeCrops(int amount) override ;
