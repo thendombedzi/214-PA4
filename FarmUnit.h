@@ -8,10 +8,9 @@ using namespace std ;
 
 class FarmUnit{
      public :
-        virtual int getTotalCapacity() = 0 ;
-        virtual string getCropType() = 0 ;
-        virtual string getSoilStateName() = 0 ; 
-        virtual int getCurrentStoredCrops() = 0 ;
+        virtual int getTotalCapacity() const = 0 ;
+        virtual string getCropType() const = 0 ; 
+        virtual int getCurrentStoredCrops() const = 0 ;
         virtual void storeCrops(int amount) = 0 ;
         virtual void removeCrops(int amount) = 0 ;
         virtual int harvest() = 0 ;
@@ -20,6 +19,7 @@ class FarmUnit{
         virtual void notifyObservers() = 0;
         virtual void buyTruck(Truck truck) = 0;
         virtual void sellTruck(Truck truck)= 0;
+        virtual ~FarmUnit() = default ;
 } ;
 
 #endif

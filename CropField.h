@@ -18,15 +18,17 @@ class CropField : public FarmUnit {
         SoilState* soilState ;
         vector<Truck> trucks ;
     public :
-        int getTotalCapacity() override ;
-        string getCropType() override ;
-        string getSoilStateName() override ;
-        int getCurrentStoredCrops() override ;
+        CropField(string cropType, int totalCapacity);
+        int getTotalCapacity() const override ;
+        string getCropType() const override ;
+        int getCurrentStoredCrops()const override ;
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
         int harvest() override ;
+        string getSoilStateName() const  ;
         void rain();
         void setSoilState(SoilState* soilState);
+        ~CropField();
 };
 
 #endif

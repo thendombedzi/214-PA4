@@ -9,12 +9,12 @@ class FieldDecorator : FarmUnit{
     protected :
         FarmUnit* decoratedField ; // wrap around
     public :
-        FieldDecorator(FarmUnit decoratedField);
-        int getTotalCapacity() = 0;
-        int getCurrentStoredCrops() = 0;
-        void storeCrops(int amount) = 0;
-        void removeCrops(int amount) = 0;
-        int harvest() = 0;
+        FieldDecorator(FarmUnit* decoratedField);
+        int getTotalCapacity() const ;
+        int getCurrentStoredCrops() const;
+        void storeCrops(int amount) ;
+        void removeCrops(int amount) ;
+        int harvest() ;
 };
 
 #endif 
