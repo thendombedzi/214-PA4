@@ -19,16 +19,19 @@ class CropField : public FarmUnit {
         vector<Truck> trucks ;
     public :
         CropField(string cropType, int totalCapacity);
+        ~CropField();
+
         int getTotalCapacity() const override ;
         string getCropType() const override ;
         int getCurrentStoredCrops()const override ;
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
         int harvest() override ;
+        
         string getSoilStateName() const  ;
         void rain();
         void setSoilState(SoilState* soilState);
-        ~CropField();
+        
 };
 
 #endif
