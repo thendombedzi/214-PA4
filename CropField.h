@@ -15,7 +15,7 @@ class CropField : public FarmUnit {
         string cropType ;
         int cropCapacity ;
         int cropAmount ;
-        SoilState soilState ;
+        SoilState* soilState ;
         vector<Truck> trucks ;
     public :
         int getTotalCapacity() override ;
@@ -26,7 +26,7 @@ class CropField : public FarmUnit {
         void removeCrops(int amount) override ;
         void harvest() override ;
         void rain();
-        void setSoilState(SoilState soilState);
+        void setSoilState(SoilState* soilState);
 };
 
 #endif
