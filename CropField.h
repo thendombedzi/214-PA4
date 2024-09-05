@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 using namespace std ;
 
 class CropField : public FarmUnit {

@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Truck.h"
+#include <iostream>
 using namespace std ;
 
 class FarmUnit{

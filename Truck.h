@@ -2,6 +2,7 @@
 #define TRUCK_H
 
 #include "FarmUnit.h";
+#include <iostream>
 
 class Truck{
     public :
