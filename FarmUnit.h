@@ -11,7 +11,7 @@ class FarmUnit{
      // new functions for decorator
           virtual void increaseProduction() = 0 ; // Enhance crop Yield applying fertilizer  
           virtual int getTotalCapacity() const = 0 ;
-          virtual int getLeftOverCapacity() = 0 ;
+          virtual int getLeftOverCapacity() const = 0 ;
         virtual string getCropType() const = 0 ; 
         virtual int getCurrentStoredCrops() const = 0 ;
         virtual void storeCrops(int amount) = 0 ;

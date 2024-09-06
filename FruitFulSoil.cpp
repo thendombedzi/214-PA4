@@ -3,18 +3,18 @@
 using namespace std;
 
 
-string getName() const
+string FruitFulSoil::getName() const
 {
     return "Fruitful";
 }
 
-void FruitfulSoil::harvestCrops(CropField* cropfield) {
-    int harvestedAmount = crop->getCurrentAmount()*3;
+int FruitFulSoil::harvestCrops(CropField* cropfield) {
+    int harvestedAmount = cropfield->getCurrentStoredCrops()*3;
     cout << "Harvested " << harvestedAmount << " crops from Fruitful soil." <<endl;
-    cropfield->removeCrops(cropfield->getCurrentAmount());
+    cropfield->removeCrops(cropfield->getCurrentStoredCrops());
 }
 
-void FruitfulSoil::rain(CropField* cropfield) {
+void FruitFulSoil::rain(CropField* cropfield) {
     std::cout << "More rain has Flooded the soil!" << std::endl;
     cropfield->setSoilState(new FloodedSoil());
 }

@@ -9,7 +9,7 @@ string DrySoil::getName() const
    return "Dry";
 }
 
-void DrySoil::harvestCrops(CropField* cropfield) {
+int DrySoil::harvestCrops(CropField* cropfield) {
     int harvestedAmount = cropfield->getCurrentStoredCrops() * 1;
     cout << "Harvested " << harvestedAmount << " crops from Dry soil." << endl;
     cropfield->removeCrops(cropfield->getCurrentStoredCrops());

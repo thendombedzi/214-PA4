@@ -3,12 +3,13 @@
 
 #include "CropField.h"
 #include "SoilState.h"
+#include "FloodedSoil.h"
 
 class FruitFulSoil : public SoilState{
     public :
         void rain(CropField* crop) ;
         string getName() const override;
-        void harvestCrops(CropField* crop);
+        int harvestCrops(CropField* crop);
 };
 
 #endif

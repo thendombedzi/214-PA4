@@ -4,6 +4,7 @@
 #include "FarmUnit.h"
 #include "Truck.h"
 #include "SoilState.h"
+#include "FruitFulSoil.h"
 
 #include <string>
 #include <vector>
@@ -27,7 +28,8 @@ class CropField : public FarmUnit {
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
         int harvest() override ;
-        
+        int getLeftOverCapacity() const override  ;
+        void increaseProduction() ;
         string getSoilStateName() const override ;
         void rain();
         void setSoilState(SoilState* soilState);

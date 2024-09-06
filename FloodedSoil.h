@@ -2,11 +2,12 @@
 #define FLOODEDSOIL_H
 
 #include "SoilState.h"
+#include "FloodedSoil.h"
 
 class FloodedSoil : public SoilState{
     public :
         void rain(CropField* cropfield) ;
         string getName() const override;
-        void harvestCrops(CropField* cropfield);
+        int harvestCrops(CropField* cropfield);
 };
 #endif
