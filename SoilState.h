@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include "CropField.h"
 using namespace std ;
 
 class SoilState{

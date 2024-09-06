@@ -1,13 +1,13 @@
 #include "CropField.h"
 #include <iostream>
 
-CropField::CropField(string cropType, int totalCapacity)
-    : cropType(cropType), totalCapacity(totalCapacity),currentAmount(0), soilState(state) {}
+CropField::CropField(string cropType, int totalCapacity, SoilState* state)
+    : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {}
 
 
 int CropField::getTotalCapacity() const 
 {
-    return totalCapacity;
+    return cropCapacity;
 }
 
 std::string CropField::getCropType() const 
@@ -17,20 +17,22 @@ std::string CropField::getCropType() const
 
 std::string CropField::getSoilStateName() const 
 {
-    return soilState;
+    return soilState->getName();
 }
 
-void CropField::storecrops(int amount) {
-    if (currentAmount + amount <= totalCapacity) {
-        currentAmount += amount;
+void CropField::storeCrops(int amount) {
+    if (cropAmount + amount <= cropCapacity) {
+        cropAmount += amount;
     } else {
         throw std::runtime_error("Crop field capacity exceeded.");
     }
 }
 
 void CropField::removeCrops(int amount) {
-    if (amount <= currentAmount) {
-        currentAmount -= amount;
+    if (amount <= cropAmount) {
+        cropAmount -= amount;
+        if(cropAmount < 0) 
+            cropAmount = 0 ; 
     } else {
         throw std::runtime_error("Field is empty.");
     }
