@@ -2,6 +2,8 @@
 
 void FertilizerTruck::startEngine(){
     cout << "Fertilizer truck engine starting ... "<< endl ;
+
+    // Logic to deliver the fertilizer 
 }
 void FertilizerTruck::callTruck(){
     cout << "Fertilizer Truck called ... " ;
@@ -9,6 +11,6 @@ void FertilizerTruck::callTruck(){
 }
 void FertilizerTruck::update(FarmUnit* farmUnit){
     if(farmUnit->getSoilStateName() == "Dry"){
-        farmUnit->set
+        callTruck();
     }
 }

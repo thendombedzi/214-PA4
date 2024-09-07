@@ -8,17 +8,15 @@
     int capacity = farmUnit->getTotalCapacity();
     if(current >= capacity){
         callTruck();
-        farmUnit->addUnit
     }
  }
 
  void DeliveryTruck::startEngine(){
     cout << "Engine starting an trucks operation starting ." << endl;
-
+    // must include logic to deliver .
  }
 
  void DeliveryTruck::callTruck(){
     cout << " Delivery Truck called ...... , " ;
     startEngine();
-    
  }
