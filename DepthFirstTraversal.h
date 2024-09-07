@@ -2,20 +2,25 @@
 #define DEPTHFIRSTTRAVERSAL_H
 
 #include "FarmTraversal.h"
+#include "FarmUnit.h"
+#include <iostream>
+#include <stack>
+using namespace std ;
 
-class DepththFirstTraversal
+class DepthFirstTraversal : public FarmTraversal
 {
   private:
     FarmUnit* root;
-    std::stack<FarmUnit*> farmStack;
+    stack<FarmUnit*> farmStack;
     FarmUnit* currentFarmPtr = nullptr;
 
   public:
-   DepthFirstIterator(FarmUnit* root);
+   DepthFirstTraversal(FarmUnit* root);
      void firstFarm() override;
      void next() override;
      bool isDone() override;
-     FarmUnit currentFarm() override;
+     FarmUnit* currentFarm() override;
+     ~DepthFirstTraversal() ;
 };
 
 #endif

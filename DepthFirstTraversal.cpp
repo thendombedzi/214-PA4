@@ -2,8 +2,7 @@
 #include <iostream>
 
 
- DepthFirstIterator(FarmUnit* root) : root(root) {}
-
+ DepthFirstTraversal::DepthFirstTraversal(FarmUnit* root) : root(root) {}
 
 void DepthFirstTraversal::firstFarm()
 {
@@ -17,9 +16,7 @@ void DepthFirstTraversal::firstFarm()
 void DepthFirstTraversal::next()
 {
     if (isDone()) return;
-
-
-
+    farmStack.pop();
 }
 
 bool DepthFirstTraversal::isDone()
@@ -27,11 +24,8 @@ bool DepthFirstTraversal::isDone()
     return farmStack.empty();
 }
 
-FarmUnit DepthFirstTraversal::currentFarm()
+FarmUnit* DepthFirstTraversal::currentFarm()
 {
-     if (currentFarmPtr) {
-            return *currentFarmPtr;
-        }
-    else cout<<"no current farm found"<<endl;
-    
+    if(isDone()) return nullptr ;
+    return farmStack.top() ;
 }

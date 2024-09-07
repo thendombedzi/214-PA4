@@ -14,8 +14,8 @@ class Barn : public FarmUnit{
         string BarnCropType ;
     public :
         Barn(int capacity);
-        int getTotalCapacity() override ;
-        int getCurrentStoredCrops() override ;
+        int getTotalCapacity() const override ;
+        int getCurrentStoredCrops() const override ;
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
 }; 

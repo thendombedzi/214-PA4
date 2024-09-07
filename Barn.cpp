@@ -8,7 +8,7 @@ int Barn::getTotalCapacity() const {
     return BarnCapacity;
 }
 
-int Barn::getCurrentStoredCrops() {
+int Barn::getCurrentStoredCrops()const {
     return storedAmount;
 }
 
