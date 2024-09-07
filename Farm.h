@@ -12,11 +12,7 @@ class Farm : public FarmAggregate {
     private:
         vector<FarmUnit*> farmUnits ;
     public :
-        FarmTraversal* createIterator(string type){
-            if(type == "BreadthFirst"){
-                return new BreadthFirstTraversal();
-            } else if(type == )
-        }
+        FarmTraversal* createIterator(string type);
 }
 
 
