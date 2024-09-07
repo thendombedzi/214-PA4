@@ -6,7 +6,7 @@
 #include <queue>
 using namespace std ;
 
-class BreadthFirstTraversal
+class BreadthFirstTraversal : public FarmTraversal
 {
   private:
     FarmUnit* root;
@@ -14,11 +14,11 @@ class BreadthFirstTraversal
     FarmUnit* currentFarmPtr = nullptr;
 
   public:
-   BreadthFirstIterator(FarmUnit* root);
+   BreadthFirstTraversal(FarmUnit* root);
      FarmUnit* firstFarm() override;
      void next() override;
      bool isDone() override;
-     FarmUnit** currentFarm() override;
+     FarmUnit* currentFarm() override;
 };
 
 #endif
