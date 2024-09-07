@@ -72,6 +72,18 @@ void CropField::removeCrops(int amount) {
         throw std::runtime_error("Field is empty.");
     }
 }
+void CropField::buyTruck(Truck* truck){
+    trucks.push_back(truck);
+}
+void CropField::sellTruck(Truck* truck){
+    // trucks.remove(truck)
+    // try using a different data structure 
+}
+void CropField::notifyObservers(){
+    for(Truck* truck1 : trucks){
+        truck1->update(this);
+    }
+}
 
 CropField::~CropField(){
     delete soilState ;
