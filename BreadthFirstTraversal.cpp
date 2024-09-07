@@ -1,7 +1,7 @@
 #include "BreadthFirstTraversal.h"
 #include <iostream>
 
-BreadthFirstIterator(FarmUnit* root) : root(root) {}
+BreadthFirstTraversal::BreadthFirstTraversal(FarmUnit* root) : root(root) {}
 
 FarmUnit* BreadthFirstTraversal::firstFarm()
 {
@@ -15,8 +15,7 @@ FarmUnit* BreadthFirstTraversal::firstFarm()
 void BreadthFirstTraversal::next()
 {
     if (isDone()) return;
-
-
+    farmQueue.pop();
 }
 
 bool BreadthFirstTraversal::isDone()
@@ -26,10 +25,7 @@ bool BreadthFirstTraversal::isDone()
 
 FarmUnit* BreadthFirstTraversal::currentFarm()
 {
-     if (currentFarmPtr) {
-            return *currentFarmPtr;
-        }
-    else cout<<"no current farm found"<<endl;
-    
+    if(isDone()) return ;
+    return farmQueue.front() ;
 }
 

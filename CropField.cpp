@@ -87,7 +87,7 @@ void CropField::notifyObservers(){
     }
 }
 
-void cropField::setSoilState(SoilState* soilstate)
+void CropField::setSoilState(SoilState* soilstate)
 {
    soilState=soilstate;
 }
