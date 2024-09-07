@@ -3,7 +3,7 @@
 
 BreadthFirstIterator(FarmUnit* root) : root(root) {}
 
-void BreadthFirstTraversal::firstFarm()
+FarmUnit* BreadthFirstTraversal::firstFarm()
 {
    while (!farmQueue.empty()) farmQueue.pop();
         if (root) farmQueue.push(root);
@@ -24,7 +24,7 @@ bool BreadthFirstTraversal::isDone()
     return farmQueue.empty();
 }
 
-FarmUnit BreadthFirstTraversal::currentFarm()
+FarmUnit* BreadthFirstTraversal::currentFarm()
 {
      if (currentFarmPtr) {
             return *currentFarmPtr;
