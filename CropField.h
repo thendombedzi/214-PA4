@@ -29,6 +29,8 @@ class CropField : public FarmUnit {
         void removeCrops(int amount) override ;
         int harvest() override ;
         int getLeftOverCapacity() const override  ;
+        void addExtraBarn(int additionalCapacity) override ;
+        void applyFertilizer() override ;
         void increaseProduction() ;
         string getSoilStateName() const override ;
         void rain();

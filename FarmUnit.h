@@ -8,7 +8,8 @@ using namespace std ;
 
 class FarmUnit{
      public :
-     // new functions for decorator
+     virtual void addExtraBarn(int additionalCapacity) = 0 ;
+          virtual void applyFertilizer() = 0 ;
           virtual void increaseProduction() = 0 ; // Enhance crop Yield applying fertilizer  
           virtual int getTotalCapacity() const = 0 ;
           virtual int getLeftOverCapacity() const = 0 ;
