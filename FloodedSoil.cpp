@@ -10,6 +10,7 @@ string FloodedSoil::getName() const
 int FloodedSoil:: harvestCrops(CropField* cropfield)
 {
   cout << "Cannot harvest crops on FloodedSoil." << endl;
+  return 0;
 }
 
 void FloodedSoil::rain(CropField* cropfield) {

@@ -32,7 +32,7 @@ class CropField : public FarmUnit {
         void increaseProduction() ;
         string getSoilStateName() const override ;
         void rain();
-        void setSoilState(SoilState* soilState);
+        void setSoilState(SoilState* soilstate);
         
 };
 

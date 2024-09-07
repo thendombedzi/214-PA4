@@ -8,6 +8,10 @@ int Barn::getTotalCapacity() const {
     return BarnCapacity;
 }
 
+int Barn::getCurrentStoredCrops() {
+    return storedAmount;
+}
+
 void Barn::storeCrops( int amount) {
     if (storedAmount + amount <= BarnCapacity) {
         if (storedAmount == 0 ) {

@@ -4,11 +4,13 @@
 CropField::CropField(string cropType, int totalCapacity, SoilState* state)
     : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {}
 
-int CropField::harvest(){
+int CropField::harvest()
+{
     int harvestedCrops = soilState->harvestCrops(this);
     cropAmount += harvestedCrops;
     return harvestedCrops ;
 }
+
 int CropField::getTotalCapacity() const 
 {
     return cropCapacity;
@@ -57,6 +59,12 @@ void CropField::removeCrops(int amount) {
         throw std::runtime_error("Field is empty.");
     }
 }
+
+void cropField::setSoilState(SoilState* soilstate)
+{
+   soilState=soilstate;
+}
+
 
 CropField::~CropField(){
     delete soilState ;

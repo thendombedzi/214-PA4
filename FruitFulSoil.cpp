@@ -10,8 +10,8 @@ string FruitFulSoil::getName() const
 
 int FruitFulSoil::harvestCrops(CropField* cropfield) {
     int harvestedAmount = cropfield->getCurrentStoredCrops()*3;
-    cout << "Harvested " << harvestedAmount << " crops from Fruitful soil." <<endl;
-    cropfield->removeCrops(cropfield->getCurrentStoredCrops());
+  cropfield->removeCrops(cropfield->getCurrentStoredCrops());
+  return harvestedAmount;
 }
 
 void FruitFulSoil::rain(CropField* cropfield) {

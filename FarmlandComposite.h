@@ -3,7 +3,8 @@
 
 #include "FarmUnit.h"
 
-class FarmComposite : public FarmUnit {
+class FarmComposite : public FarmUnit 
+{
 private:
     std::vector<FarmUnit*> units;
 
