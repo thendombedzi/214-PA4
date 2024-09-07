@@ -18,5 +18,19 @@ void FieldDecorator::removeCrops(int amount){
     decoratedField->removeCrops(amount);
 }
 int FieldDecorator::harvest() {
-    return decoratedField->harvest();
+    decoratedField->harvest();
+}
+int FieldDecorator::getLeftOverCapacity() const {
+    return decoratedField->getLeftOverCapacity();
+}
+void FieldDecorator::increaseProduction(){
+    decoratedField->increaseProduction();
+    cout << "FertilizerDecorator : Further enhancing production ." << endl ;
+}
+void FieldDecorator::applyFertilizer() {
+        decoratedField->applyFertilizer();
+    }
+
+void FieldDecorator::addExtraBarn(int additionalCapacity) {
+    decoratedField->addExtraBarn(additionalCapacity);
 }

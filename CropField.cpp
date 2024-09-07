@@ -20,7 +20,7 @@ int CropField::getLeftOverCapacity() const {
 }
 
 void CropField::increaseProduction() {
-    if(soilState->getName() == "DrySoil"){
+    if(soilState->getName() == "Dry"){
         cout << "Fertilizer applied : Transitioning from DrySoil to FruitfulSoil. " << endl ;
         delete soilState ;
         soilState = new FruitFulSoil();
@@ -29,9 +29,24 @@ void CropField::increaseProduction() {
     }
 }
 
+  void CropField::applyFertilizer() {
+        if (soilState->getName() == "Dry") {
+            setSoilState(new FruitFulSoil());
+            increaseProduction();
+        } else {
+            std::cout << "Fertilizer has no effect on non-dry soil.\n";
+        }
+    }
+
+void CropField::addExtraBarn(int additionalCapacity) {
+        cropCapacity += additionalCapacity;
+        std::cout << "Added extra barn. New capacity: " << cropCapacity << "\n";
+    }
+
 void CropField::rain(){
     soilState->rain(this);
 }
+
 std::string CropField::getCropType() const 
 {
     return cropType;
@@ -57,6 +72,18 @@ void CropField::removeCrops(int amount) {
             cropAmount = 0 ; 
     } else {
         throw std::runtime_error("Field is empty.");
+    }
+}
+void CropField::buyTruck(Truck* truck){
+    trucks.push_back(truck);
+}
+void CropField::sellTruck(Truck* truck){
+    // trucks.remove(truck)
+    // try using a different data structure 
+}
+void CropField::notifyObservers(){
+    for(Truck* truck1 : trucks){
+        truck1->update(this);
     }
 }
 

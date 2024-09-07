@@ -7,8 +7,11 @@ using namespace std ;
 
 class ExtraBarnDecorator : public FieldDecorator{
    private :
-        int additionalCapacity ;
+        int extraCapacity ;
     public :
-        int getTotalCapacity() override ;
+        ExtraBarnDecorator(FarmUnit* decoratedField);
+        void addExtraBarn(int additionalCapacity);
+        int getTotalCapacity() const override ;
+        int getLeftOverCapacity() const override;
 };
 #endif
