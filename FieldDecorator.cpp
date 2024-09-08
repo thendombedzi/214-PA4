@@ -1,7 +1,7 @@
 #include "FieldDecorator.h"
 
 FieldDecorator::FieldDecorator(FarmUnit* decoratedField){
-    decoratedField = decoratedField ;
+    this->decoratedField = decoratedField ;
 }
 
 
@@ -17,20 +17,19 @@ void FieldDecorator::storeCrops(int amount){
 void FieldDecorator::removeCrops(int amount){
     decoratedField->removeCrops(amount);
 }
-int FieldDecorator::harvest() {
-    decoratedField->harvest();
-}
-int FieldDecorator::getLeftOverCapacity() const {
-    return decoratedField->getLeftOverCapacity();
-}
-void FieldDecorator::increaseProduction(){
-    decoratedField->increaseProduction();
-    cout << "FertilizerDecorator : Further enhancing production ." << endl ;
-}
-void FieldDecorator::applyFertilizer() {
-        decoratedField->applyFertilizer();
-    }
 
+void FieldDecorator::applyFertilizer() {
+    decoratedField->applyFertilizer();
+}
+void FieldDecorator::setSoilState(SoilState* state) {
+    decoratedField->setSoilState(state);
+}
+SoilState* FieldDecorator::getSoilState(){
+    return decoratedField->getSoilState();
+}
 void FieldDecorator::addExtraBarn(int additionalCapacity) {
     decoratedField->addExtraBarn(additionalCapacity);
+}
+FieldDecorator::~FieldDecorator(){
+    delete decoratedField ;
 }

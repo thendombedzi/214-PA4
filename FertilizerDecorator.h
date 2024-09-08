@@ -3,6 +3,7 @@
 
 #include "FieldDecorator.h"
 #include "FarmUnit.h"
+#include "DrySoil.h"
 #include <iostream>
 using namespace std ;
 

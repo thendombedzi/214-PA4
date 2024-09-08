@@ -9,10 +9,10 @@ using namespace std ;
 class FarmUnit{
      public :
      virtual void addExtraBarn(int additionalCapacity) = 0 ;
-          virtual void applyFertilizer() = 0 ;
-          virtual void increaseProduction() = 0 ; // Enhance crop Yield applying fertilizer  
-          virtual int getTotalCapacity() const = 0 ;
-          virtual int getLeftOverCapacity() const = 0 ;
+     virtual void applyFertilizer() = 0 ;
+     virtual void increaseProduction() = 0 ; // Enhance crop Yield applying fertilizer  
+     virtual int getTotalCapacity() const = 0 ;
+     virtual int getLeftOverCapacity() const = 0 ;
         virtual string getCropType() const = 0 ; 
         virtual int getCurrentStoredCrops() const = 0 ;
         virtual void storeCrops(int amount) = 0 ;
@@ -25,6 +25,8 @@ class FarmUnit{
         virtual void sellTruck(Truck truck)= 0;
         virtual string getSoilStateName() const = 0;
         virtual ~FarmUnit() = default ;
+        virtual void setSoilState(SoilState* state) = 0;
+        virtual SoilState* getSoilState() = 0;
 
          virtual void addUnit(FarmUnit* unit) {};
     virtual void removeUnit(FarmUnit* unit) {};

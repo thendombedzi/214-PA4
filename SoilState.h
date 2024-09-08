@@ -7,6 +7,8 @@
 #include "CropField.h"
 using namespace std ;
 
+class CropField ;
+
 class SoilState{
     public :
     virtual ~SoilState() = default;

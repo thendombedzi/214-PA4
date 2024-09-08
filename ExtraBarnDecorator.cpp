@@ -1,17 +1,15 @@
 #include "ExtraBarnDecorator.h"
 
-ExtraBarnDecorator::ExtraBarnDecorator(FarmUnit* decoratedField): FieldDecorator(decoratedField){} ;
+ExtraBarnDecorator::ExtraBarnDecorator(FarmUnit* decoratedField, int extraCapacity): FieldDecorator(decoratedField), extraCapacity(extraCapacity){} ;
 
 int ExtraBarnDecorator::getTotalCapacity() const {
     return decoratedField->getTotalCapacity() + extraCapacity ; 
 }
 
 int ExtraBarnDecorator::getLeftOverCapacity() const {
-    return getTotalCapacity() - decoratedField->getTotalCapacity() ;
+    return getTotalCapacity() - decoratedField->getCurrentStoredCrops() ;
 }
 
-void ExtraBarnDecorator::addExtraBarn(int additionalCapacity) {
-    FieldDecorator::addExtraBarn(additionalCapacity);
-    std::cout << "Extra barn functionality added.\n";
+int ExtraBarnDecorator::harvest(){
+    return decoratedField->harvest();
 }
-

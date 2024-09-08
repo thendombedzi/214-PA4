@@ -1,10 +1,10 @@
 #include "FertilizerDecorator.h"
 
 void FertilizerDecorator::increaseProduction(){
-    // Call the increaseProduction method on the decorated field
-    decoratedField->increaseProduction();
-    FieldDecorator::applyFertilizer();
-    std::cout << "FertilizerDecorator: Further enhancing production." << std::endl;
+    if (dynamic_cast<DrySoil*>(decoratedField->getSoilState())) {
+        std::cout << "Applying fertilizer to increase productivity!" << std::endl;
+        decoratedField->setSoilState(new FruitFulSoil());
+    }
 }
 
     // Override the harvest method

@@ -9,8 +9,8 @@ class ExtraBarnDecorator : public FieldDecorator{
    private :
         int extraCapacity ;
     public :
-        ExtraBarnDecorator(FarmUnit* decoratedField);
-        void addExtraBarn(int additionalCapacity);
+        ExtraBarnDecorator(FarmUnit* decoratedField, int extraCapacity);
+        int harvest() override ;
         int getTotalCapacity() const override ;
         int getLeftOverCapacity() const override;
 };
