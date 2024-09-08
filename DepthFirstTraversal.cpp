@@ -2,15 +2,25 @@
 #include <iostream>
 
 
- DepthFirstTraversal::DepthFirstTraversal(FarmUnit* root) : root(root) {}
+ DepthFirstTraversal::DepthFirstTraversal(FarmUnit* root) : root(root), currentFarmPtr(nullptr) {}
 
-void DepthFirstTraversal::firstFarm()
+FarmUnit* DepthFirstTraversal::firstFarm()
 {
-   while (!farmStack.empty()) farmStack.pop();
-        if (root) farmStack.push(root);
-        if (!isDone()) {
+   while (!farmStack.empty())
+   { farmStack.pop();}
+
+    if (root)
+    { farmStack.push(root);}
+
+        if (!isDone()) 
+        {
             currentFarmPtr = farmStack.top();
         } 
+        else {
+            currentFarmPtr = nullptr;
+        }
+
+        return currentFarmPtr;
 }
 
 void DepthFirstTraversal::next()

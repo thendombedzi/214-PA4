@@ -12,7 +12,7 @@ class DepthFirstTraversal : public FarmTraversal
   private:
     FarmUnit* root;
     stack<FarmUnit*> farmStack;
-    FarmUnit* currentFarmPtr = nullptr;
+    FarmUnit* currentFarmPtr;
 
   public:
    DepthFirstTraversal(FarmUnit* root);

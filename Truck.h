@@ -1,7 +1,7 @@
 #ifndef TRUCK_H
 #define TRUCK_H
 
-#include "FarmUnit.h";
+#include "FarmUnit.h"
 #include <iostream>
 
 class Truck{
