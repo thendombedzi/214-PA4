@@ -3,10 +3,10 @@
 
 #include <string>
 
-#include "SoilState.h"
+#include "Truck.h"
 #include <iostream>
 #include <vector>
-class Truck ;
+class SoilState ;
 using namespace std ;
 
 class FarmUnit{

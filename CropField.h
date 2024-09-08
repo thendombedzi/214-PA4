@@ -2,6 +2,7 @@
 #define CROPFIELD_H
 
 #include "FarmUnit.h"
+#include "Truck.h"
 
 class SoilState ;
 
