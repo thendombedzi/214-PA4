@@ -7,13 +7,19 @@
 #include "FarmAggregate.h"
 #include "FarmTraversal.h"
 #include "BreadthFirstTraversal.h"
+#include "DepthFirstTraversal.h"
+#include <iostream>
+using namespace std;
 
-class Farm : public FarmAggregate {
+class Farm : public FarmAggregate 
+{
     private:
-        vector<FarmUnit*> farmUnits ;
+        vector<FarmUnit*> farmUnits;
+        FarmUnit* unit;
     public :
         FarmTraversal* createIterator(string type);
-}
+        void addFarmUnit(FarmUnit* newUnit);
+};
 
 
 

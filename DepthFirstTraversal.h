@@ -16,7 +16,7 @@ class DepthFirstTraversal : public FarmTraversal
 
   public:
    DepthFirstTraversal(FarmUnit* root);
-     void firstFarm() override;
+     FarmUnit* firstFarm() override;
      void next() override;
      bool isDone() override;
      FarmUnit* currentFarm() override;
