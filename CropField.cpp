@@ -1,10 +1,12 @@
 #include "CropField.h"
+#include "SoilState.h"
+#include "FruitFulSoil.h"
 #include <iostream>
 #include <algorithm>
 
-CropField::CropField(string cropType, int totalCapacity, SoilState* state)
+CropField::CropField(const std::string& cropType, int totalCapacity, SoilState* state)
     : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {}
-    
+
 SoilState* CropField::getSoilState(){
     return soilState ;
 }
@@ -50,11 +52,6 @@ void CropField::addExtraBarn(int additionalCapacity) {
 
 void CropField::rain(){
     soilState->rain(this);
-}
-
-std::string CropField::getCropType() const 
-{
-    return cropType;
 }
 
 std::string CropField::getSoilStateName() const 

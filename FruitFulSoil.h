@@ -1,15 +1,18 @@
 #ifndef FRUITFULSOIL_H
 #define FRUITFULSOIL_H
 
-#include "CropField.h"
 #include "SoilState.h"
 #include "FloodedSoil.h"
+#include <string> // Include string header
 
-class FruitFulSoil : public SoilState{
-    public :
-        void rain(CropField* crop) ;
-        string getName() const override;
-        int harvestCrops(CropField* crop);
+// Forward declare CropFielda
+class CropField;
+
+class FruitFulSoil : public SoilState {
+public:
+    void rain(CropField* crop) override;   // Ensure CropField is forward declared
+    std::string getName() const override; // Use std::string
+    int harvestCrops(CropField* crop) override;
 };
 
-#endif
+#endif // FRUITFULSOIL_H

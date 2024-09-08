@@ -2,8 +2,11 @@
 #define FARMUNIT_H
 
 #include <string>
-#include "Truck.h"
+
+#include "SoilState.h"
 #include <iostream>
+#include <vector>
+class Truck ;
 using namespace std ;
 
 class FarmUnit{

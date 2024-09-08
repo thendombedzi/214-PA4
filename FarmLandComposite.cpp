@@ -14,7 +14,7 @@ void FarmlandComposite::removeUnit(FarmUnit* unit)
     }
 }
 
-int Farmland::getTotalCapacity() const 
+int FarmlandComposite::getTotalCapacity() const 
 {
     int total = 0;
     for (const auto& unit : units) {
@@ -23,15 +23,8 @@ int Farmland::getTotalCapacity() const
     return total;
 }
 
-std::string Farmland::getCropType() const 
-{
-    if (!units.empty()) {
-        return units[0]->getCropType() ;
-    }
-    return "No crops in the field";
-}
 
-std::string Farmland::getSoilStateName() const 
+std::string FarmlandComposite::getSoilStateName() const 
 {
     if (!units.empty()) {
         return units[0]->getSoilStateName();

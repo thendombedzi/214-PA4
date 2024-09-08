@@ -2,12 +2,16 @@
 #define FLOODEDSOIL_H
 
 #include "SoilState.h"
-#include "FloodedSoil.h"
+#include <string> // Include string header
 
-class FloodedSoil : public SoilState{
-    public :
-        void rain(CropField* cropfield) ;
-        string getName() const override;
-        int harvestCrops(CropField* cropfield);
+// Forward declare CropField
+class CropField;
+
+class FloodedSoil : public SoilState {
+public:
+    void rain(CropField* crop) override; // Ensure CropField is forward declared
+    std::string getName() const override;    // Use std::string
+    int harvestCrops(CropField* crop) override;
 };
-#endif
+
+#endif // FLOODEDSOIL_H

@@ -1,10 +1,10 @@
 #ifndef TRUCK_H
 #define TRUCK_H
 
-#include "FarmUnit.h"
 #include <iostream>
 
-class FarmUnit ;
+// Forward declaration of FarmUnit class
+class FarmUnit;
 
 class Truck{
     public :
@@ -12,6 +12,5 @@ class Truck{
         virtual void startEngine() = 0;
         virtual ~Truck() = default ;
 };
-
 
 #endif

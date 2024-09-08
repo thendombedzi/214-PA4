@@ -1,21 +1,21 @@
-#ifndef FARMLAND_H
-#define FARMLAND_H
+#ifndef FARMLANDCOMPOSITE_H
+#define FARMLANDCOMPOSITE_H
 
 #include "FarmUnit.h"
+#include <algorithm>
 
-class FarmComposite : public FarmUnit 
+class FarmlandComposite : public FarmUnit 
 {
 private:
     std::vector<FarmUnit*> units;
 
 
 public:
-    ~Farmland();
-    void addFarmUnit(FarmUnit* unit) override;
-    void removeFarmUnit(FarmUnit* unit) override;
-    int getTotalCapacity() const override;
-    std::string getCropType() const override;
-    std::string getSoilStateName() const override
+    ~FarmlandComposite();
+    void addUnit(FarmUnit* unit) override;
+    void removeUnit(FarmUnit* unit)override ;
+    int getTotalCapacity() const ;
+    std::string getSoilStateName() const ;
 
 };
 
