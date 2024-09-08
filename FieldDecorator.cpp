@@ -21,6 +21,10 @@ void FieldDecorator::removeCrops(int amount){
 void FieldDecorator::applyFertilizer() {
     decoratedField->applyFertilizer();
 }
+
+string FieldDecorator::getSoilStateName() const{
+   return  decoratedField->getSoilStateName();
+}
 void FieldDecorator::setSoilState(SoilState* state) {
     decoratedField->setSoilState(state);
 }

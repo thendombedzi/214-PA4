@@ -13,5 +13,6 @@ class ExtraBarnDecorator : public FieldDecorator{
         int harvest() override ;
         int getTotalCapacity() const override ;
         int getLeftOverCapacity() const override;
+        void increaseProduction() override ;
 };
 #endif

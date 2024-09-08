@@ -17,7 +17,6 @@ class CropField : public FarmUnit {
         int cropCapacity ;
         int cropAmount ;
         SoilState* soilState ;
-        vector<Truck*> trucks ;
     public :
         CropField(string cropType, int totalCapacity, SoilState* state);
         ~CropField();
@@ -37,7 +36,9 @@ class CropField : public FarmUnit {
         void setSoilState(SoilState* soilState);
         void buyTruck(Truck* truck) override ;
         void sellTruck(Truck* truck) override ;
-        void notifyObservers() ;
+        void callTruck()override ;
+        void startEngine() override ;
+        SoilState* getSoilState() override ;
 
         
 };

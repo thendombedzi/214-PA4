@@ -1,9 +1,13 @@
 #include "CropField.h"
 #include <iostream>
+#include <algorithm>
 
 CropField::CropField(string cropType, int totalCapacity, SoilState* state)
     : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {}
-
+    
+SoilState* CropField::getSoilState(){
+    return soilState ;
+}
 int CropField::harvest()
 {
     int harvestedCrops = soilState->harvestCrops(this);
@@ -31,6 +35,7 @@ void CropField::increaseProduction() {
 
   void CropField::applyFertilizer() {
         if (soilState->getName() == "Dry") {
+            callTruck() ;
             setSoilState(new FruitFulSoil());
             increaseProduction();
         } else {
@@ -60,6 +65,9 @@ std::string CropField::getSoilStateName() const
 void CropField::storeCrops(int amount) {
     if (cropAmount + amount <= cropCapacity) {
         cropAmount += amount;
+        if(cropAmount == cropCapacity){
+            callTruck();
+        }
     } else {
         throw std::runtime_error("Crop field capacity exceeded.");
     }
@@ -76,16 +84,17 @@ void CropField::removeCrops(int amount) {
 }
 void CropField::buyTruck(Truck* truck){
     trucks.push_back(truck);
+    cout << "Truck purchasesd .\n";
 }
-void CropField::sellTruck(Truck* truck){
-    // trucks.remove(truck)
-    // try using a different data structure 
-}
-void CropField::notifyObservers(){
-    for(Truck* truck1 : trucks){
-        truck1->update(this);
+void CropField::sellTruck(Truck* truck) {
+        auto it = find(trucks.begin(), trucks.end(), truck);
+        if (it != trucks.end()) {
+            trucks.erase(it);
+            std::cout << "Truck sold.\n";
+        } else {
+            std::cout << "Truck not found.\n";
+        }
     }
-}
 
 void CropField::setSoilState(SoilState* soilstate)
 {
@@ -95,4 +104,15 @@ void CropField::setSoilState(SoilState* soilstate)
 
 CropField::~CropField(){
     delete soilState ;
+}
+void CropField::callTruck() {
+    for (Truck* truck : trucks) {
+        truck->update(this);  // Notify all trucks
+    }
+}
+
+void CropField::startEngine()  {
+    for (Truck* truck : trucks) {
+        truck->startEngine();
+    }
 }

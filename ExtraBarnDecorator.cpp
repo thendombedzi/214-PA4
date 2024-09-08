@@ -13,3 +13,8 @@ int ExtraBarnDecorator::getLeftOverCapacity() const {
 int ExtraBarnDecorator::harvest(){
     return decoratedField->harvest();
 }
+
+void ExtraBarnDecorator::increaseProduction(){
+   cout << "Production increased " << endl ;
+}
+

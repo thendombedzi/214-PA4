@@ -11,18 +11,23 @@ class FieldDecorator : public FarmUnit{
         FarmUnit* decoratedField ; // wrap around
     public :
         FieldDecorator(FarmUnit* decoratedField);
-        int getTotalCapacity() const ;
-        int getCurrentStoredCrops() const;
-        void storeCrops(int amount) ;
-        void removeCrops(int amount) ;
+        int getTotalCapacity() const override;
+        int getCurrentStoredCrops() const override ;
+        void storeCrops(int amount)override ;
+        void removeCrops(int amount) override;
         int harvest() ;
         void applyFertilizer() override ;
         void addExtraBarn(int additionalCapacity) override;
+        void buyTruck(Truck* truck) override;
+        void sellTruck(Truck* truck) override;
+        void callTruck() override;
+        void startEngine() override;
         void setSoilState(SoilState* state)override ;
         SoilState* getSoilState() override ;
-        virtual void increaseProduction() = 0 ;
-        virtual int harvest() = 0 ;
-        virtual int getLeftOverCapacity() = 0 ;
+        string getSoilStateName() const override ;
+        // // virtual void increaseProduction() = 0 ;
+        // // virtual int harvest() = 0 ;
+        // virtual int getLeftOverCapacity() = 0 ;
 };
 
 #endif 
