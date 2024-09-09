@@ -10,6 +10,10 @@ FarmUnit* BreadthFirstTraversal::firstFarm()
         if (!isDone()) {
             currentFarmPtr = farmQueue.front();
         }
+    if(currentFarmPtr) { return currentFarmPtr;}
+    else{
+        return nullptr ;
+    }
 }
 
 void BreadthFirstTraversal::next()
@@ -25,7 +29,7 @@ bool BreadthFirstTraversal::isDone()
 
 FarmUnit* BreadthFirstTraversal::currentFarm()
 {
-    if(isDone()) return ;
+    if(isDone()) return nullptr ;
     return farmQueue.front() ;
 }
 

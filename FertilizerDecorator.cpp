@@ -3,6 +3,7 @@
 void FertilizerDecorator::increaseProduction(){
     if (dynamic_cast<DrySoil*>(decoratedField->getSoilState())) {
         std::cout << "Applying fertilizer to increase productivity!" << std::endl;
+        delete decoratedField->getSoilState() ;
         decoratedField->setSoilState(new FruitFulSoil());
     }
 }
@@ -17,4 +18,8 @@ int FertilizerDecorator::harvest() {
 
 int FertilizerDecorator::getLeftOverCapacity() const {
     return decoratedField->getLeftOverCapacity();
+}
+
+FertilizerDecorator::~FertilizerDecorator(){
+    
 }

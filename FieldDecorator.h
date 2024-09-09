@@ -1,4 +1,4 @@
-#ifndef FIELDECORATOR_H
+#ifndef FIELDDECORATOR_H
 #define FIELDDECORATOR_H
 
 #include "FarmUnit.h"
@@ -25,6 +25,7 @@ class FieldDecorator : public FarmUnit{
         void setSoilState(SoilState* state)override ;
         SoilState* getSoilState() override ;
         string getSoilStateName() const override ;
+        virtual ~FieldDecorator();
         // // virtual void increaseProduction() = 0 ;
         // // virtual int harvest() = 0 ;
         // virtual int getLeftOverCapacity() = 0 ;

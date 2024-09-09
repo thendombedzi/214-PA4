@@ -34,7 +34,9 @@ void CropField::increaseProduction() {
             std::cout << "Fertilizer cannot be applied. Soil is already in " << soilState->getName() << " state." << std::endl;
     }
 }
-
+int CropField::getCurrentStoredCrops() const {
+    return cropAmount ;
+}
   void CropField::applyFertilizer() {
         if (soilState->getName() == "Dry") {
             callTruck() ;
@@ -95,7 +97,7 @@ void CropField::sellTruck(Truck* truck) {
 
 void CropField::setSoilState(SoilState* soilstate)
 {
-   soilState=soilstate;
+   this->soilState = soilState ;
 }
 
 

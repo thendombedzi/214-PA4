@@ -37,3 +37,23 @@ void FieldDecorator::addExtraBarn(int additionalCapacity) {
 FieldDecorator::~FieldDecorator(){
     delete decoratedField ;
 }
+
+void FieldDecorator::buyTruck(Truck* truck) {
+    // Implementation of buyTruck function
+}
+
+void FieldDecorator::sellTruck(Truck* truck) {
+    cout << "Base sellTruck" << endl ;
+}
+
+void FieldDecorator::callTruck() {
+    cout << "Base callTruck" << endl ;
+}
+
+void FieldDecorator::startEngine() {
+    cout << "Base start engine " << endl ;
+}
+
+int FieldDecorator::harvest() {
+    return 100 ;
+}

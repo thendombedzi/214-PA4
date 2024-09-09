@@ -39,3 +39,12 @@ FarmUnit* DepthFirstTraversal::currentFarm()
     if(isDone()) return nullptr ;
     return farmStack.top() ;
 }
+
+DepthFirstTraversal::~DepthFirstTraversal(){
+    if(root != nullptr){
+        delete root ;
+    }
+    if(currentFarmPtr != nullptr){
+        delete currentFarmPtr ;
+    }
+}

@@ -46,7 +46,5 @@ int main() {
 
     // Clean up
     delete extraBarnDecoratedField;
-    delete fertilizerDecoratedField;
-    delete field;
     return 0;
 }
