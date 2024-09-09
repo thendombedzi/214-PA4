@@ -10,7 +10,7 @@ class FarmTraversal
     virtual void next()=0;
     virtual bool isDone()=0;
     virtual FarmUnit* currentFarm()=0;
-     virtual ~FarmTraversal() = default ;
+     virtual ~FarmTraversal() {} ;
 };
 
 #endif

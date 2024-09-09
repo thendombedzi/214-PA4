@@ -18,6 +18,9 @@ class Barn : public FarmUnit{
         int getCurrentStoredCrops() const override ;
         void storeCrops(int amount) override ;
         void removeCrops(int amount) override ;
+        string getUnitDetails() const override;
+
+
 }; 
 
 #endif

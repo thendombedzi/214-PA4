@@ -34,8 +34,8 @@ int CropField::getLeftOverCapacity() const {
 void CropField::increaseProduction() {
     if(soilState && soilState->getName() == "Dry"){
         cout << "Fertilizer applied : Transitioning from DrySoil to FruitfulSoil. " << endl ;
-        SoilState* newSoilState = new FruitFulSoil();
-        soilState = newSoilState;
+        delete soilState;
+        soilState =  new FruitFulSoil();
     } else {
             std::cout << "Fertilizer cannot be applied. Soil is already in " << soilState->getName() << " state." << std::endl;
     }
@@ -44,7 +44,7 @@ int CropField::getCurrentStoredCrops() const {
     return cropAmount ;
 }
   void CropField::applyFertilizer() {
-        if (soilState->getName() == "Dry") {
+        if (soilState && soilState->getName() == "Dry") {
             callTruck() ;
             setSoilState(new FruitFulSoil());
             increaseProduction();
@@ -74,7 +74,7 @@ void CropField::storeCrops(int amount) {
             callTruck();
         }
     } else {
-        throw std::runtime_error("Crop field capacity exceeded.");
+        cout<<"Crop field capacity exceeded."<<endl;
     }
 }
 
@@ -84,7 +84,7 @@ void CropField::removeCrops(int amount) {
         if(cropAmount < 0) 
             cropAmount = 0 ; 
     } else {
-        throw std::runtime_error("Field is empty.");
+        cout<<"Field is empty."<<endl;;
     }
 }
 void CropField::buyTruck(Truck* truck){
@@ -103,11 +103,12 @@ void CropField::sellTruck(Truck* truck) {
 
 void CropField::setSoilState(SoilState* soilstate)
 {
-   this->soilState = soilState ;
+   this->soilState = soilstate ;
 }
 
 
 CropField::~CropField(){
+    delete soilState;
 }
 
 
@@ -121,4 +122,11 @@ void CropField::startEngine()  {
     for (Truck* truck : trucks) {
         truck->startEngine();
     }
+}
+std::string CropField::getUnitDetails() const {
+    std::string soilStateName = soilState ? soilState->getName() : "Unknown";
+    return "CropField - Crop Type: " + cropType +
+           ", Capacity: " + std::to_string(cropCapacity) +
+           ", Stored: " + std::to_string(cropAmount) +
+           ", Soil State: " + soilStateName;
 }

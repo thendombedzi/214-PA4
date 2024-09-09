@@ -11,14 +11,15 @@
 #include <iostream>
 using namespace std;
 
-class Farm : public FarmAggregate 
-{
+class Farm : public FarmAggregate {
     private:
         vector<FarmUnit*> farmUnits;
         FarmUnit* unit;
     public :
+    Farm():unit(nullptr){}
         FarmTraversal* createIterator(string type);
         void addFarmUnit(FarmUnit* newUnit);
+        ~Farm();
 };
 
 

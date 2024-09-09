@@ -8,7 +8,7 @@ class FarmAggregate
 {
 public:
   virtual  FarmTraversal* createIterator(string type) =0;
-  virtual ~FarmAggregate() = default;
+  virtual ~FarmAggregate() {}
 };
 
 #endif

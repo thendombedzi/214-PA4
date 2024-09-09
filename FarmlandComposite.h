@@ -16,6 +16,9 @@ public:
     void removeUnit(FarmUnit* unit)override ;
     int getTotalCapacity() const ;
     std::string getSoilStateName() const ;
+     void storeCrops(int amount) override;
+    void removeCrops(int amount) override;
+    int getCurrentStoredCrops() const override;
 
 };
 

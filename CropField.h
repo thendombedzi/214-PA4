@@ -40,6 +40,9 @@ public:
     void sellTruck(Truck* truck) override;
     void callTruck() override;
     void startEngine() override;
+     string getUnitDetails() const override;
+     
 };
+
 
 #endif // CROPFIELD_H

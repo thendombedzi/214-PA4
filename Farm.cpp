@@ -21,6 +21,7 @@ void Farm::addFarmUnit(FarmUnit* newUnit)
 {
   if (newUnit == nullptr) {
        cout<<"ERROR: cannot add an empty farm unit"<<endl;
+       return;
         }
         
         if (!unit) 
@@ -30,3 +31,15 @@ void Farm::addFarmUnit(FarmUnit* newUnit)
         farmUnits.push_back(newUnit);
     
 }
+
+Farm::~Farm() {
+    // Ensure no dangling pointers
+    for (FarmUnit* farmUnit : farmUnits) {
+        if (farmUnit != nullptr) {
+            delete farmUnit;
+        }
+    }
+    farmUnits.clear(); // Clear the vector to avoid dangling pointers
+    // rootUnit = nullptr; // Ensure that rootUnit is also cleared if it's part of the design
+}
+

@@ -1,7 +1,9 @@
 #include "Barn.h"
 #include <iostream>
 
-Barn::Barn(int capacity) : BarnCapacity(capacity), storedAmount(0), BarnCropType("Empty") {}
+Barn::Barn(int capacity) : BarnCapacity(capacity), storedAmount(0) {
+    BarnCropType="unknown";
+}
 
 
 int Barn::getTotalCapacity() const {
@@ -13,13 +15,13 @@ int Barn::getCurrentStoredCrops()const {
 }
 
 void Barn::storeCrops( int amount) {
+    cout<<storedAmount<<" and "<<amount<<endl;
     if (storedAmount + amount <= BarnCapacity) {
-        if (storedAmount == 0 ) {
+    
             storedAmount += amount;
-        
-        } 
+    
     } else {
-        throw std::runtime_error("Barn capacity exceeded");
+        cout<<"Barn capacity exceeded"<<endl;
     }
 }
 
@@ -30,6 +32,12 @@ void Barn::removeCrops(int amount) {
             BarnCropType = "Empty";
         }
     } else {
-        throw std::runtime_error("Not enough crops in the barn");
+        cout<<"Not enough crops in the barn"<<endl;
     }
+
+    
+}
+
+std::string Barn::getUnitDetails() const {
+    return "Barn - Capacity: " + std::to_string(BarnCapacity) + ", Stored: " + std::to_string(storedAmount);
 }

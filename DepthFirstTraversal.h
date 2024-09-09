@@ -20,7 +20,7 @@ class DepthFirstTraversal : public FarmTraversal
      void next() override;
      bool isDone() override;
      FarmUnit* currentFarm() override;
-     ~DepthFirstTraversal() ;
+    // ~DepthFirstTraversal() ;
 };
 
 #endif

@@ -2,7 +2,9 @@
 #include <iostream>
 
 
- DepthFirstTraversal::DepthFirstTraversal(FarmUnit* root) : root(root), currentFarmPtr(nullptr) {}
+ DepthFirstTraversal::DepthFirstTraversal(FarmUnit* root) : root(root), currentFarmPtr(nullptr) {
+    firstFarm();
+ }
 
 FarmUnit* DepthFirstTraversal::firstFarm()
 {
@@ -40,11 +42,11 @@ FarmUnit* DepthFirstTraversal::currentFarm()
     return farmStack.top() ;
 }
 
-DepthFirstTraversal::~DepthFirstTraversal(){
-    if(root != nullptr){
-        delete root ;
-    }
-    if(currentFarmPtr != nullptr){
-        delete currentFarmPtr ;
-    }
-}
+// DepthFirstTraversal::~DepthFirstTraversal(){
+//     if(root != nullptr){
+//         delete root ;
+//     }
+//     // if(currentFarmPtr != nullptr){
+//     //     delete currentFarmPtr ;
+//     // }
+// }

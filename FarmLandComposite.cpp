@@ -35,8 +35,32 @@ std::string FarmlandComposite::getSoilStateName() const
 FarmlandComposite::~FarmlandComposite() 
 {
     for (auto unit : units) {
+        
         delete unit;
     }
+}
+
+void FarmlandComposite::storeCrops(int amount) {
+    for (auto& unit : units) {
+        unit->storeCrops(amount);
+        // You may want to handle amount distributed or handle overflow
+    }
+}
+
+void FarmlandComposite::removeCrops(int amount) {
+    for (auto& unit : units) {
+        unit->removeCrops(amount);
+        // You may want to handle amount distributed or handle underflow
+    }
+}
+
+
+int FarmlandComposite::getCurrentStoredCrops() const {
+    int totalStoredCrops = 0;
+    for (const auto& unit : units) {
+        totalStoredCrops += unit->getCurrentStoredCrops();
+    }
+    return totalStoredCrops;
 }
 
 
