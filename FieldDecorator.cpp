@@ -34,9 +34,7 @@ SoilState* FieldDecorator::getSoilState(){
 void FieldDecorator::addExtraBarn(int additionalCapacity) {
     decoratedField->addExtraBarn(additionalCapacity);
 }
-FieldDecorator::~FieldDecorator(){
-    delete decoratedField ;
-}
+
 
 void FieldDecorator::buyTruck(Truck* truck) {
     // Implementation of buyTruck function
@@ -56,4 +54,8 @@ void FieldDecorator::startEngine() {
 
 int FieldDecorator::harvest() {
     return 100 ;
+}
+
+FieldDecorator::~FieldDecorator() {
+    delete decoratedField; // Ensures that the wrapped field is cleaned up
 }

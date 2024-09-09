@@ -21,8 +21,9 @@ $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Run with Valgrind
+# Run with Valgrind
 run: $(TARGET)
-	valgrind --leak-check=full ./$(TARGET)
+	valgrind --track-origins=yes --leak-check=full ./$(TARGET)
 
 # Clean Up Build Files
 clean:

@@ -5,18 +5,24 @@
 #include <algorithm>
 
 CropField::CropField(const std::string& cropType, int totalCapacity, SoilState* state)
-    : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {}
+    : cropType(cropType), cropCapacity(totalCapacity),cropAmount(0), soilState(state) {
+        if(!state){
+            soilState = nullptr ;
+        }
+    }
 
 SoilState* CropField::getSoilState(){
     return soilState ;
 }
-int CropField::harvest()
-{
-    int harvestedCrops = soilState->harvestCrops(this);
-    cropAmount += harvestedCrops;
-    return harvestedCrops ;
+int CropField::harvest() {
+    if (soilState) {
+        int harvestedCrops = soilState->harvestCrops(this);
+        cropAmount += harvestedCrops;
+        return harvestedCrops;
+    } else {
+        throw std::runtime_error("Error: SoilState is null, cannot harvest.");
+    }
 }
-
 int CropField::getTotalCapacity() const 
 {
     return cropCapacity;
@@ -26,10 +32,10 @@ int CropField::getLeftOverCapacity() const {
 }
 
 void CropField::increaseProduction() {
-    if(soilState->getName() == "Dry"){
+    if(soilState && soilState->getName() == "Dry"){
         cout << "Fertilizer applied : Transitioning from DrySoil to FruitfulSoil. " << endl ;
-        delete soilState ;
-        soilState = new FruitFulSoil();
+        SoilState* newSoilState = new FruitFulSoil();
+        soilState = newSoilState;
     } else {
             std::cout << "Fertilizer cannot be applied. Soil is already in " << soilState->getName() << " state." << std::endl;
     }
@@ -102,8 +108,9 @@ void CropField::setSoilState(SoilState* soilstate)
 
 
 CropField::~CropField(){
-    delete soilState ;
 }
+
+
 void CropField::callTruck() {
     for (Truck* truck : trucks) {
         truck->update(this);  // Notify all trucks

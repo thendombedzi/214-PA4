@@ -25,10 +25,10 @@ class FieldDecorator : public FarmUnit{
         void setSoilState(SoilState* state)override ;
         SoilState* getSoilState() override ;
         string getSoilStateName() const override ;
-        virtual ~FieldDecorator();
         // // virtual void increaseProduction() = 0 ;
         // // virtual int harvest() = 0 ;
         // virtual int getLeftOverCapacity() = 0 ;
+        virtual ~FieldDecorator();
 };
 
 #endif 

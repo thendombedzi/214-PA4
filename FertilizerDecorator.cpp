@@ -1,13 +1,14 @@
 #include "FertilizerDecorator.h"
 
-void FertilizerDecorator::increaseProduction(){
-    if (dynamic_cast<DrySoil*>(decoratedField->getSoilState())) {
+void FertilizerDecorator::increaseProduction() {
         std::cout << "Applying fertilizer to increase productivity!" << std::endl;
-        delete decoratedField->getSoilState() ;
-        decoratedField->setSoilState(new FruitFulSoil());
-    }
-}
 
+        FruitFulSoil* soil = new FruitFulSoil();
+        decoratedField->setSoilState(soil);
+    }
+
+    FertilizerDecorator::~FertilizerDecorator() {
+    }
     // Override the harvest method
 int FertilizerDecorator::harvest() {
     // Call the harvest method on the decorated field
@@ -20,6 +21,3 @@ int FertilizerDecorator::getLeftOverCapacity() const {
     return decoratedField->getLeftOverCapacity();
 }
 
-FertilizerDecorator::~FertilizerDecorator(){
-    
-}

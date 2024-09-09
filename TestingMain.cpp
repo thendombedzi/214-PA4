@@ -3,7 +3,7 @@
 #include "CropField.h"
 #include "SoilState.h"
 #include "DrySoil.h"
-#include "FruitfulSoil.h"
+#include "FruitFulSoil.h"
 #include "FloodedSoil.h"
 #include "ExtraBarnDecorator.h"
 #include "FertilizerDecorator.h"
@@ -24,7 +24,7 @@ int main() {
 
     // Apply fertilizer using FertilizerDecorator
     FertilizerDecorator* fertilizerDecoratedField = new FertilizerDecorator(field);
-    fertilizerDecoratedField->increaseProduction(); // Increase productivity
+ // Increase productivity
     int harvestedCrops = fertilizerDecoratedField->harvest(); // Harvest crops
 
     // Display state after applying fertilizer
@@ -46,5 +46,6 @@ int main() {
 
     // Clean up
     delete extraBarnDecoratedField;
+
     return 0;
 }

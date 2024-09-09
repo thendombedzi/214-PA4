@@ -14,7 +14,7 @@ class FertilizerDecorator : public FieldDecorator{
     void increaseProduction() override;
     int harvest()override ;
     int getLeftOverCapacity() const override ;
-    ~FertilizerDecorator() override = default;
+    ~FertilizerDecorator();
     // void increaseProduction() override ;
     // int harvest() override ;
 };
