@@ -117,7 +117,9 @@ CropField::~CropField(){
 void CropField::callTruck() {
     static bool fertilizerApplied = false;
     if (soilState->getName() == "Dry" && !fertilizerApplied) {
-        fertilizerApplied = true; // Prevent repeated fertilizer application
+        fertilizerApplied = true;
+         // Prevent repeated fertilizer application
+        startEngine();
         for (Truck* truck : trucks) {
             truck->update(this); // Notify all trucks
         }
