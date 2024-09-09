@@ -108,16 +108,23 @@ void CropField::setSoilState(SoilState* soilstate)
 
 
 CropField::~CropField(){
-    delete soilState;
+    if(soilState != nullptr){
+        delete soilState ;
+    }
 }
 
 
 void CropField::callTruck() {
-    for (Truck* truck : trucks) {
-        truck->update(this);  // Notify all trucks
+    static bool fertilizerApplied = false;
+    if (soilState->getName() == "Dry" && !fertilizerApplied) {
+        fertilizerApplied = true;
+         // Prevent repeated fertilizer application
+        startEngine();
+        for (Truck* truck : trucks) {
+            truck->update(this); // Notify all trucks
+        }
     }
 }
-
 void CropField::startEngine()  {
     for (Truck* truck : trucks) {
         truck->startEngine();

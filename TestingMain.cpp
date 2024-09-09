@@ -129,6 +129,53 @@ cout<<endl;
    
     // Clean up
     delete extraBarnDecoratedField;
+
+    cout << " Testing observer : " << " ...... " << endl ;
+
+     // Create initial SoilState objects
+    SoilState* drySoil = new DrySoil();
+    SoilState* fruitfulSoil = new FruitFulSoil();
+
+    // Create a CropField with initial dry soil
+    CropField* field1 = new CropField("Wheat", 1000, drySoil);
+
+    // Add some trucks to the field1
+    FertilizerTruck* fertilizerTruck = new FertilizerTruck();
+    DeliveryTruck* deliveryTruck = new DeliveryTruck();
+
+    field1->buyTruck(fertilizerTruck);
+    field1->buyTruck(deliveryTruck);
+
+    // Test storing crops
+    std::cout << "\n--- Storing Crops ---" << std::endl;
+    field1->storeCrops(800); // Should not trigger truck collection
+    field1->storeCrops(200); // Should trigger DeliveryTruck for collection
+
+    // Test calling trucks directly
+    std::cout << "\n--- Calling Trucks ---" << std::endl;
+    field1->callTruck();
+
+    // Test applying fertilizer on DrySoil
+    std::cout << "\n--- Applying Fertilizer on Dry Soil ---" << std::endl;
+    field1->applyFertilizer();
+
+    // Simulate rain to change soil state to FruitFulSoil
+    std::cout << "\n--- Rain Event ---" << std::endl;
+    field1->rain(); // Changes soil to fruitful
+
+    // Test trying to apply fertilizer on fruitful soil
+    std::cout << "\n--- Trying to Apply Fertilizer on Fruitful Soil ---" << std::endl;
+    field1->applyFertilizer();
+
+    // Test harvesting crops
+    std::cout << "\n--- Harvesting Crops ---" << std::endl;
+    int harvested = field1->harvest();
+    std::cout << "Harvested: " << harvested << " crops." << std::endl;
+
+    // Cleanup
+    delete field1;
+    delete drySoil;
+    delete fruitfulSoil;
     delete barn2;
     delete farmland;
     
